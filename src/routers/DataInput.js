@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Card,Typography, Link,Button  } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
+import Box from '@mui/material/Box';
+
 
 const preventDefault = (event) => event.preventDefault();
 const email = localStorage.getItem("email");
@@ -93,7 +95,8 @@ function DataInput(props) {
   return (
     <div>
     <h1>데이터 입력 페이지</h1>
-    <Typography>데이터 입력하여 DB에 등록: {email == '' ? 'NULL' : email}</Typography>
+    <Typography sx={{marginBottom:3}}>로그인 되어있는 이메일: {email == '' ? 'NULL' : email}</Typography>
+    <Typography>데이터 입력하여 DB에 등록: </Typography>
     <form>
     <TextField
             label="Enter Info"
@@ -116,16 +119,19 @@ function DataInput(props) {
                     > {state} </Typography>
                 </CardContent>
             </Card>
-            <Typography> {underText} </Typography>
+            <Box sx={{ marginTop:3, marginBottom:3}}>
+            <Typography> {underText} </Typography></Box>
+            <Box component="span" sx={{ marginBottom:3,p:1, border: '1px dashed grey' }}>
             <Link href='/' >메인페이지로 돌아가기</Link>
+            </Box>
 
-  <div>
+  <Box sx={{ marginTop:3,p:1}}>
     <Button sx = {{display: delDisplay}}
       variant='contained'
       color='secondary'
       onClick={deleteButton}
       >데이터 삭제</Button>
-  </div>
+  </Box>
     </div>
   )
 }

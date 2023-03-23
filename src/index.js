@@ -3,16 +3,11 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import DataInput from './routers/DataInput';
 import reportWebVitals from './reportWebVitals';
-import { Provider } from 'react-redux';
-import store from './store'
 import Email from './routers/Email';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  // <Provider store={store}>
-  //   {/* <App /> */}
-  // </Provider>
   <BrowserRouter>
   <React.StrictMode>
     <Routes>
