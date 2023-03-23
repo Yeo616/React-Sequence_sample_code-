@@ -2,12 +2,10 @@ import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import { Card,Typography, Link,Button  } from '@mui/material';
 import CardContent from '@mui/material/CardContent';
-import App from './App'
 
 const preventDefault = (event) => event.preventDefault();
 
 export default function Email(props){
-
     const [text,setText] = useState('')
     const [underText,setUnderText] = useState('')
     const [state,setState] = useState('상태창')
@@ -38,16 +36,20 @@ export default function Email(props){
                 // 찾는 데이터가 없을 경우에
                 if (data.status === "non-exist") {
                  // 데이터가 없으면, 입력페이지로 전환 시키기
-                 setLinkDisplay('block')
+                     setLinkDisplay('block')
 
                     setBackColor('orange')
                     setState('No data')
                     setUnderText( "Email has verified, but "+JSON.stringify(data.status))
-
+                    localStorage.setItem("email", text);
+                    
                     console.log("email exists : ", response.status);
                 }else{
                     setBackColor('green')
                     setState('done')
+                    setLinkDisplay('block')
+                    localStorage.setItem("email", text);
+
                     setUnderText(JSON.stringify(data.status))
                 }}
         }catch(e){
@@ -69,7 +71,9 @@ export default function Email(props){
             variant = "standard"
             value={text}
             helperText={error}
-            onChange={(event)=>{setText(event.target.value);}}
+            onChange={(event)=>{
+                setText(event.target.value);
+            }}
            />
 
             <Button
@@ -86,9 +90,10 @@ export default function Email(props){
                 </CardContent>
             </Card>
             <Typography> {underText} </Typography>
-            <a style={{display:linkDisplay}} href={props.url} //주소 넣어야함
-            > 데이터 추가하기</a>
-                    
+            <Link 
+                href='/input'
+                display={linkDisplay}
+                >데이터 추가하기</Link>
         </div>
     )
 }
