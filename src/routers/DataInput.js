@@ -119,19 +119,23 @@ function DataInput(props) {
                     > {state} </Typography>
                 </CardContent>
             </Card>
+
             <Box sx={{ marginTop:3, marginBottom:3}}>
             <Typography> {underText} </Typography></Box>
-            <Box component="span" sx={{ marginBottom:3,p:1, border: '1px dashed grey' }}>
+
+          <Box sx={{ marginBottom:3,p:1}}>
+           <Button sx = {{display: delDisplay}}
+            variant='contained'
+            color='secondary'
+            onClick={deleteButton}
+            >데이터 삭제</Button>
+         </Box>
+
+            <Box component="span" sx={{ marginTop:3,p:1, border: '1px dashed grey' }}>
             <Link href='/' >메인페이지로 돌아가기</Link>
             </Box>
 
-  <Box sx={{ marginTop:3,p:1}}>
-    <Button sx = {{display: delDisplay}}
-      variant='contained'
-      color='secondary'
-      onClick={deleteButton}
-      >데이터 삭제</Button>
-  </Box>
+
     </div>
   )
 }

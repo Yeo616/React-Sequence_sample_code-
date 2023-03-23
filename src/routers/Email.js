@@ -90,10 +90,13 @@ export default function Email(props){
                 </CardContent>
             </Card>
             <Typography> {underText} </Typography>
-            <Link 
+            
+            <Button 
+                variant='contained'
+                color='secondary'
+                sx ={{display:linkDisplay, maxWidth:150, marginTop:2}}
                 href='/input'
-                display={linkDisplay}
-                >데이터 추가하기</Link>
+                >데이터 추가하기</Button>
         </div>
     )
 }
