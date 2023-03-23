@@ -13,7 +13,6 @@ root.render(
     <Routes>
       <Route path="/" element = {<Email />}></Route>
       <Route path="/input" element = {<DataInput />}></Route>
-    {/* // props */}
     </Routes>
   </React.StrictMode>
   </BrowserRouter>
