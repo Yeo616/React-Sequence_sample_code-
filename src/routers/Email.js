@@ -51,7 +51,13 @@ export default function Email(props){
                     localStorage.setItem("email", text);
 
                     setUnderText(JSON.stringify(data.status))
-                }}
+                }}else{
+                    setBackColor('red')
+                    setState('404')
+                    setLinkDisplay('none')
+
+                    setUnderText('invalid email')
+                }
         }catch(e){
             // 응답이 정상이 아닐 경우, 버튼 색이 바뀜
             setBackColor('red')
