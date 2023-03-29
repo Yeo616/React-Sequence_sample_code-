@@ -7,7 +7,7 @@ import Box from '@mui/material/Box';
 
 
 const preventDefault = (event) => event.preventDefault();
-const email = localStorage.getItem("email");
+const email = localStorage.getItem("email")|| "";
 
 function DataInput(props) {
   const [text,setText] = useState('')
@@ -17,7 +17,12 @@ function DataInput(props) {
   const [error,setError] = useState('')
   const [delDisplay,setDelDisplay] = useState('none')
   
-  
+  if (!email || email === "") {
+    setBackColor( "red");
+    setState("email is required");
+    setUnderText("email is required");
+    console.error("email is required");
+  }
   async function handleButton(event){
     event.preventDefault();
 
@@ -51,13 +56,18 @@ function DataInput(props) {
         setBackColor("green");
         setState("success");
         setDelDisplay("block")
+      }else{
+        setBackColor("red");
+        setState("wrong input");
+        setUnderText("wrong input");
+        console.error("wrong input");
       }
     } catch (error) {
       // 응답이 정상이 아닐 경우,
       // 버튼 색 바뀌기
       setBackColor("red");
-      setUnderText("wrong input");
-      setUnderText(error);
+      setState("connect error");
+      setUnderText(error.toString());
       console.error("catch error : ", error);
     }
   }

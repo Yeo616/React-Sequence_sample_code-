@@ -63,6 +63,8 @@ export default function Email(props){
             setBackColor('red')
             setState('Server Error')
             setUnderText('error'+ e)
+            setLinkDisplay('none')
+
             console.error("catch error : ", e);
         }
     }
