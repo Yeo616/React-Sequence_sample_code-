@@ -21,6 +21,7 @@ export default function Email(props){
             setBackColor('red')
             setState('Empty error')
             setUnderText('email is required')
+            setLinkDisplay('none')
             return
         }
 

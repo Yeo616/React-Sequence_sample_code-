@@ -21,6 +21,7 @@ function DataInput(props) {
     setBackColor( "red");
     setState("email is required");
     setUnderText("email is required");
+    setDelDisplay('none')
     console.error("email is required");
   }
   async function handleButton(event){
